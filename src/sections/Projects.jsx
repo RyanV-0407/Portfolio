@@ -7,9 +7,9 @@ const projects = [
   {
     title: "Eco-Retail: AI-Powered Circular Commerce Platform",
     description: "A scalable AI-powered e-commerce platform featuring JWT authentication, role-based access control, 15+ REST APIs, and MongoDB optimization reducing average API response time by ~25ms.",
-    image: "",
+    image: "eco.png",
     tags: ["Next.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Firebase", "YOLOv8", "JWT"],
-    link: "#",
+    link: "https://eco-com-retail.vercel.app/",
     github: "https://github.com/Vishal-047/eco_retail",
   },
   {
@@ -104,7 +104,7 @@ export const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
@@ -138,12 +138,18 @@ export const Projects = () => {
 
               {/* Content */}
               <div className="p-6 space-y-4">
-                <div className="flex items-start justify-between">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start justify-between cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  aria-label={`View ${project.title}`}
+                >
                   <h3 className="text-xl font-bold text-ink group-hover:text-primary transition-colors font-serif">
                     {project.title}
                   </h3>
                   <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all flex-shrink-0 ml-2" />
-                </div>
+                </a>
                 <p className="text-muted-foreground text-sm">
                   {project.description}
                 </p>
