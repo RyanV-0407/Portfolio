@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Navbar } from "@/layout/Navbar";
 import { Hero } from "@/sections/Hero";
 import { About } from "@/sections/About";
@@ -8,19 +8,48 @@ import { Certifications } from "@/sections/Certifications";
 import { Contact } from "@/sections/Contact";
 import { DevContactFlash } from "@/components/DevContactFlash";
 import { Footer } from "./layout/Footer";
-import { GeometricMesh } from "@/components/GeometricMesh";
+import { ParallaxConstellation } from "@/components/ParallaxConstellation";
 import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { LiquidMetalCanvas } from "@/components/LiquidMetalCanvas";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem("portfolio-theme") || "light";
+    } catch {
+      return "light";
+    }
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+    try {
+      localStorage.setItem("portfolio-theme", theme);
+    } catch {
+      // localStorage unavailable
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
 
   return (
     <div className="min-h-screen overflow-x-hidden">
       {/* Global UI layers */}
-      <GeometricMesh />
-      <CustomCursor />
+      {theme === "light" && <ParallaxConstellation />}
+      {theme === "light" && <CustomCursor />}
+      <LiquidMetalCanvas theme={theme} />
       <ScrollProgress />
+      <ThemeToggle theme={theme} onToggle={toggleTheme} />
 
       <Navbar onContactClick={() => setIsContactOpen(true)} />
       <main className="relative z-10">

@@ -15,7 +15,7 @@ export const Navbar = ({ onContactClick }) => {
     <header
       className="fixed top-0 left-0 right-0 py-5 z-50"
       style={{
-        background: "linear-gradient(to bottom, #F5EFE0 40%, transparent 100%)",
+        background: "linear-gradient(to bottom, var(--color-background) 40%, transparent 100%)",
       }}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">

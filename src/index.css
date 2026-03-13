@@ -27,6 +27,25 @@
   --color-amber: #C8860A;
 }
 
+/* Dark mode overrides — activated by .dark on <html> */
+.dark {
+  --color-background: #0a0a0a;
+  --color-foreground: #e8e0d0;
+  --color-card: #161412;
+  --color-primary: #ffc850;
+  --color-primary-foreground: #0a0a0a;
+  --color-secondary: #1a1714;
+  --color-secondary-foreground: #d4a04a;
+  --color-muted: #1e1b16;
+  --color-muted-foreground: #a89878;
+  --color-border: #2a2520;
+  --color-highlight: #d4a04a;
+  --color-surface: #141210;
+  --color-ink: #e8e0d0;
+  --color-rust: #d4a04a;
+  --color-amber: #ffc850;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -46,6 +65,7 @@
     color: var(--color-foreground);
     font-family: "Instrument Sans", sans-serif;
     overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
   h1, h2, h3, h4, h5, h6 {
