@@ -55,7 +55,7 @@ export const Hero = () => {
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200 font-sans">
-                Hey, I'm Vishal — a CSE student who loves building things that actually work.
+                Hey, I'm Vishal — a 21 year old developer from India, also a CSE student who loves building things that actually work.
               </p>
               <span className="block font-mono text-sm text-primary animate-fade-in animation-delay-200 tracking-wider">
                 Code. Build. Ship. Repeat.

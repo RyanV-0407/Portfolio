@@ -23,17 +23,17 @@ const projects = [
   {
     title: "URL Shortener",
     description: "A clean and fast URL shortening service that converts long URLs into short, shareable links with redirect functionality.",
-    image: "",
-    tags: ["JavaScript", "Node.js"],
-    link: "#",
+    image: "url.png",
+    tags: ["JavaScript", "Node.js", "MongoDB", "Express.js"],
+    link: "https://the-url-shortner.vercel.app",
     github: "https://github.com/Vishal-047/URL-Shortner",
   },
   {
     title: "Security Header Checker",
     description: "A web tool to analyze and validate HTTP security headers of any website, helping developers identify missing or misconfigured security headers.",
-    image: "",
+    image: "security.png",
     tags: ["HTML", "CSS", "JavaScript"],
-    link: "#",
+    link: "https://security-header-check.vercel.app",
     github: "https://github.com/Vishal-047/Security-header-checker",
   },
 ];
