@@ -36,7 +36,7 @@ export const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column */}
           <div className="space-y-8">
-            <div className="animate-fade-in">
+            <div className="animate-fade-in animation-delay-400">
               <span className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-xs tracking-wider uppercase text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                 Driven Full-Stack Developer
@@ -45,7 +45,7 @@ export const Hero = () => {
 
             {/* Headline */}
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100 text-ink">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-600 text-ink">
                 Turning <span className="text-primary">Ideas</span>
                 <br />
                 into <span className="text-rust">full-stack</span>
@@ -54,16 +54,16 @@ export const Hero = () => {
                   experiences.
                 </span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200 font-sans">
+              <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-800 font-sans">
                 Hey, I'm Vishal — a 21 year old developer from India, also a CSE student who loves building things that actually work.
               </p>
-              <span className="block font-mono text-sm text-primary animate-fade-in animation-delay-200 tracking-wider">
+              <span className="block font-mono text-sm text-primary animate-fade-in animation-delay-800 tracking-wider">
                 Code. Build. Ship. Repeat.
               </span>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
+            <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-1000">
               <GhostButton
                 size="lg"
                 onClick={() =>
@@ -79,7 +79,7 @@ export const Hero = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
+            <div className="flex items-center gap-4 animate-fade-in animation-delay-1200">
               <span className="font-mono text-xs text-muted-foreground tracking-wider uppercase">Follow:</span>
               {[
                 { icon: Github, href: "https://github.com/Vishal-047" },
@@ -103,7 +103,7 @@ export const Hero = () => {
           </div>
 
           {/* Right Column - Profile Image */}
-          <div className="relative animate-fade-in animation-delay-300">
+          <div className="relative animate-fade-in animation-delay-1000">
             <div className="relative max-w-md mx-auto">
               <div className="relative border border-border p-2">
                 <img
@@ -126,7 +126,7 @@ export const Hero = () => {
         </div>
 
         {/* Skills */}
-        <div className="mt-20 animate-fade-in animation-delay-600">
+        <div className="mt-20 animate-fade-in animation-delay-1500">
           <p className="section-label mb-6 text-center">
             Technologies I work with
           </p>

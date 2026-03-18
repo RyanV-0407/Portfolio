@@ -13,8 +13,10 @@ import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { LiquidMetalCanvas } from "@/components/LiquidMetalCanvas";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { LoadingScreen } from "@/components/LoadingScreen";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [theme, setTheme] = useState(() => {
     try {
@@ -43,24 +45,31 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className={`min-h-screen overflow-x-hidden ${isLoading ? "h-screen overflow-hidden" : ""}`}>
+      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+      
       {/* Global UI layers */}
       {theme === "light" && <ParallaxConstellation />}
-      {theme === "light" && <CustomCursor />}
+      <CustomCursor isDark={theme === "dark"} />
       <LiquidMetalCanvas theme={theme} />
       <ScrollProgress />
       <ThemeToggle theme={theme} onToggle={toggleTheme} />
 
-      <Navbar onContactClick={() => setIsContactOpen(true)} />
-      <main className="relative z-10">
-        <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <Certifications />
-        <Contact />
-      </main>
-      <Footer />
+      {!isLoading && (
+        <>
+          <Navbar onContactClick={() => setIsContactOpen(true)} />
+          <main className="relative z-10">
+            <Hero />
+            <About />
+            <Projects />
+            <Experience />
+            <Certifications />
+            <Contact />
+          </main>
+          <Footer />
+        </>
+      )}
+      
       <DevContactFlash
         open={isContactOpen}
         onClose={() => setIsContactOpen(false)}

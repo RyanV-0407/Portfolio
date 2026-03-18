@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export const CustomCursor = () => {
+export const CustomCursor = ({ isDark = false }) => {
   const dotRef = useRef(null);
   const ringRef = useRef(null);
   const ring2Ref = useRef(null);
@@ -78,7 +78,6 @@ export const CustomCursor = () => {
 
   return (
     <>
-      {/* Filled amber dot */}
       <div
         ref={dotRef}
         style={{
@@ -91,10 +90,9 @@ export const CustomCursor = () => {
           backgroundColor: "#C8860A",
           pointerEvents: "none",
           zIndex: 99999,
-          mixBlendMode: "multiply",
+          mixBlendMode: isDark ? "normal" : "multiply",
         }}
       />
-      {/* Inner ring */}
       <div
         ref={ringRef}
         style={{
@@ -107,11 +105,10 @@ export const CustomCursor = () => {
           border: "1.2px solid rgba(200,134,10,0.45)",
           pointerEvents: "none",
           zIndex: 99998,
-          mixBlendMode: "multiply",
+          mixBlendMode: isDark ? "normal" : "multiply",
           transition: "transform 0.12s ease-out",
         }}
       />
-      {/* Outer ring */}
       <div
         ref={ring2Ref}
         style={{
@@ -124,7 +121,7 @@ export const CustomCursor = () => {
           border: "1px solid rgba(200,134,10,0.2)",
           pointerEvents: "none",
           zIndex: 99997,
-          mixBlendMode: "multiply",
+          mixBlendMode: isDark ? "normal" : "multiply",
           transition: "transform 0.15s ease-out",
         }}
       />
