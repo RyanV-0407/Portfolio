@@ -5,16 +5,16 @@ import { useState } from "react";
 
 const projects = [
   {
-    title: "Eco-Retail: AI-Powered Circular Commerce Platform",
-    description: "A scalable AI-powered e-commerce platform featuring JWT authentication, role-based access control, 15+ REST APIs, and MongoDB optimization reducing average API response time by ~25ms.",
+    title: "EcoRetail",
+    description: "Architected an AI-powered e-commerce platform using YOLOv8 for product recognition. Implemented secure JWT auth and role-based access across 15+ scalable REST APIs. Engineered Firebase real-time sync and optimized MongoDB queries, successfully reducing average API response time by ~25ms.",
     image: "eco.png",
     tags: ["Next.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Firebase", "YOLOv8", "JWT"],
     link: "https://eco-com-retail.vercel.app/",
     github: "https://github.com/Vishal-047/eco_retail",
   },
   {
-    title: "Medicare-AI: AI-Powered Healthcare Management Platform",
-    description: "A secure healthcare management system with patient records, appointment scheduling, OCR-based document processing, and integrated Stripe payments and Twilio notifications.",
+    title: "Medicare-AI",
+    description: "Developed a HIPAA-compliant healthcare management system in TypeScript. Built secure patient record handling and integrated OCR for automated medical document processing. Scaled payment flows with Stripe and implemented reliable Twilio SMS notifications.",
     image: "medicare_ai.png",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB", "Stripe", "Twilio"],
     link: "https://medi-health-ai.vercel.app",
@@ -91,7 +91,7 @@ export const Projects = () => {
           {filtered.map((project, idx) => (
             <div
               key={idx}
-              className={`group relative border border-border bg-card overflow-hidden transition-all duration-500 hover:border-primary/50 ${getSpan(idx)}`}
+              className={`group flex flex-col relative border border-border bg-card overflow-hidden transition-all duration-500 hover:border-primary/50 ${getSpan(idx)}`}
             >
               {/* Card Index Badge */}
               <div className="card-badge">
@@ -113,56 +113,56 @@ export const Projects = () => {
                     </span>
                   </div>
                 )}
-                {/* Overlay Links */}
-                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-ink/30">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 border border-background/50 bg-background/80 hover:bg-primary hover:text-primary-foreground transition-all"
-                    data-hover
-                  >
-                    <ArrowUpRight className="w-5 h-5" />
-                  </a>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 border border-background/50 bg-background/80 hover:bg-primary hover:text-primary-foreground transition-all"
-                    data-hover
-                  >
-                    <Github className="w-5 h-5" />
-                  </a>
-                </div>
               </div>
 
               {/* Content */}
-              <div className="p-6 space-y-4">
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start justify-between cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  aria-label={`View ${project.title}`}
-                >
-                  <h3 className="text-xl font-bold text-ink group-hover:text-primary transition-colors font-serif">
+              <div className="flex flex-col flex-grow p-6">
+                <div className="flex flex-col h-full relative">
+                  {/* Inline Action Links */}
+                  <div className="flex items-center gap-6 mb-4">
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-xs font-mono font-bold tracking-widest uppercase text-ink hover:text-primary transition-colors"
+                        data-hover
+                      >
+                        <ArrowUpRight className="w-4 h-4" /> Live Site
+                      </a>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-xs font-mono font-bold tracking-widest uppercase text-ink hover:text-primary transition-colors"
+                        data-hover
+                      >
+                        <Github className="w-4 h-4" /> Source Code
+                      </a>
+                    )}
+                  </div>
+
+                  <h3 className="text-xl font-bold text-ink transition-colors font-serif pr-8 mb-4">
                     {project.title}
                   </h3>
-                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all flex-shrink-0 ml-2" />
-                </a>
-                <p className="text-muted-foreground text-sm">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIdx) => (
-                    <span
-                      key={tagIdx}
-                      className="filter-tag"
-                      style={{ fontSize: "0.65rem" }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  
+                  <p className="text-muted-foreground text-sm flex-grow mb-6">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.tags.map((tag, tagIdx) => (
+                      <span
+                        key={tagIdx}
+                        className="filter-tag"
+                        style={{ fontSize: "0.65rem" }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
