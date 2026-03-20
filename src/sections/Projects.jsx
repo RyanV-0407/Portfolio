@@ -55,7 +55,7 @@ export const Projects = () => {
   return (
     <section id="projects" className="py-32 relative overflow-hidden">
       {/* Watermark */}
-      <span className="watermark top-4 right-4 md:right-16">03</span>
+      <span className="watermark top-4 right-4 md:right-16">05</span>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}

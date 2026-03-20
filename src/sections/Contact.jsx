@@ -101,7 +101,7 @@ export const Contact = () => {
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
       {/* Watermark */}
-      <span className="watermark top-4 right-4 md:right-16">06</span>
+      <span className="watermark top-4 right-4 md:right-16">08</span>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}

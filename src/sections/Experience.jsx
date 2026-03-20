@@ -55,22 +55,13 @@ const experiences = [
     technologies: ["HTML", "CSS", "JavaScript"],
     current: false,
   },
-  {
-    period: "Since August 2023",
-    role: "B.Tech CSE Student",
-    company: "Lovely Professional University, Punjab",
-    description:
-      "Pursuing Computer Science Engineering with an open minor in Cybersecurity. Maintaining a CGPA of 7.78 while actively building projects, competing in hackathons, and solving 200+ problems on LeetCode.",
-    technologies: ["Full-Stack", "Cybersecurity", "DSA", "DBMS", "Cloud Computing"],
-    current: true,
-  },
 ];
 
 export const Experience = () => {
   return (
     <section id="experience" className="py-32 relative overflow-hidden">
       {/* Watermark */}
-      <span className="watermark -top-4 left-4 md:left-12">04</span>
+      <span className="watermark -top-4 left-4 md:left-12">06</span>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}

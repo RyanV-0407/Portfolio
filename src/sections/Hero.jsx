@@ -16,18 +16,11 @@ const handleDownloadCV = () => {
   link.click();
 };
 
-const skills = [
-  "React.js", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS",
-  "Tailwind CSS", "Bootstrap", "Node.js", "JWT Authentication",
-  "MongoDB", "MySQL", "SQLite", "Mongoose",
-  "C++", "Python", "JAVA",
-  "Git", "GitHub", "Docker", "Firebase", "Vercel",
-  "Wireshark", "Burp Suite", "Nmap", "Metasploit",
-];
+
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Number Watermark */}
       <span className="watermark top-12 right-8 md:right-16">01</span>
 
@@ -123,24 +116,7 @@ export const Hero = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Skills */}
-        <div className="mt-20 animate-fade-in animation-delay-1500">
-          <p className="section-label mb-6 text-center">
-            Technologies I work with
-          </p>
-          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-            {skills.map((skill, idx) => (
-              <span
-                key={idx}
-                className="filter-tag"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
+        </div>        
       </div>
     </section>
   );

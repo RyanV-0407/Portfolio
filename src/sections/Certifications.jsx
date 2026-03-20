@@ -60,7 +60,7 @@ export const Certifications = () => {
   return (
     <section id="certifications" className="py-32 relative overflow-hidden">
       {/* Watermark */}
-      <span className="watermark top-4 right-4 md:right-16">05</span>
+      <span className="watermark top-4 right-4 md:right-16">07</span>
 
       <div className="container mx-auto px-6 relative z-10">
 
@@ -88,14 +88,6 @@ export const Certifications = () => {
               className="bg-card p-8 md:p-12 border border-border relative animate-fade-in"
               style={{ borderTop: `3px solid ${cert.color}` }}
             >
-              {/* Badge */}
-              <div
-                className="absolute -top-5 left-8 w-12 h-12 flex items-center justify-center text-2xl"
-                style={{ background: cert.color, color: "#F5EFE0" }}
-              >
-                {cert.badge}
-              </div>
-
               {/* Issuer + Date */}
               <div className="flex items-center justify-between mb-6 pt-4">
                 <span

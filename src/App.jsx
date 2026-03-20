@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Navbar } from "@/layout/Navbar";
 import { Hero } from "@/sections/Hero";
 import { About } from "@/sections/About";
+import { Skills } from "@/sections/skills";
+import { Education } from "@/sections/Education";
 import { Projects } from "@/sections/Projects";
 import { Experience } from "@/sections/Experience";
 import { Certifications } from "@/sections/Certifications";
@@ -61,6 +63,8 @@ function App() {
           <main className="relative z-10">
             <Hero />
             <About />
+            <Skills />
+            <Education />
             <Projects />
             <Experience />
             <Certifications />
