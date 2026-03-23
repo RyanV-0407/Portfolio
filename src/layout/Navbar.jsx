@@ -42,32 +42,33 @@ export const Navbar = ({ onContactClick }) => {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 py-5 z-50 animate-fade-in animation-delay-200"
+      className="fixed top-0 left-0 right-0 py-4 z-50 animate-fade-in animation-delay-200"
       style={{
         background: "linear-gradient(to bottom, var(--color-background) 40%, transparent 100%)",
       }}
     >
-      <nav className="container mx-auto px-6 flex items-center justify-between">
+      <nav className="container mx-auto px-4 sm:px-6">
+        <div className="nav-shell px-4 sm:px-5 py-3 flex items-center justify-between gap-3">
         <a
           href="#"
-          className="font-serif text-3xl tracking-tight text-ink hover:text-primary transition-colors"
+          className="font-serif text-2xl sm:text-3xl tracking-tight text-ink hover:text-primary transition-colors"
           data-hover
         >
-          Vishal Singh
+          Vikram Rathour
         </a>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-1">
-          <div className="border border-border px-2 py-1 flex items-center gap-1 bg-background/60 backdrop-blur-md">
+          <div className="px-2 py-1 flex items-center gap-1 bg-background/40 rounded-full">
             {navLinks.map((link, index) => {
               const isActive = activeSection === link.href;
               return (
                 <a
                   href={link.href}
                   key={index}
-                  className={`px-4 py-2 font-mono text-xs tracking-wider uppercase transition-colors ${
+                  className={`px-4 py-2 rounded-full font-mono text-xs tracking-wider uppercase transition-all duration-300 ${
                     isActive
-                      ? "text-primary font-bold shadow-[0_1px_0_0_var(--color-primary)]"
+                      ? "text-primary font-bold bg-primary/12 shadow-[0_0_0_1px_color-mix(in_srgb,var(--color-primary)_45%,transparent)]"
                       : "text-muted-foreground hover:text-primary"
                   }`}
                   data-hover
@@ -92,12 +93,13 @@ export const Navbar = ({ onContactClick }) => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-ink"
+          className="md:hidden p-2 text-ink rounded-full border border-border"
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           data-hover
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}

@@ -15,32 +15,33 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
           {/* Left Column */}
-          <div className="space-y-8">
+          <div className="space-y-8 section-shell edge-clip p-7 md:p-10">
             <div className="animate-fade-in animation-delay-400">
-              <span className="inline-flex items-center gap-2 px-4 py-2 border border-border font-mono text-xs tracking-wider uppercase text-primary">
+              <span className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full font-mono text-xs tracking-wider uppercase text-primary bg-background/40">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Driven Full-Stack Developer
+                AI/ML and Full-Stack Developer
               </span>
             </div>
 
             {/* Headline */}
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-600 text-ink">
-                Turning <span className="text-primary">Ideas</span>
+            <div className="space-y-5">
+              <h1 className="text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.04] animate-fade-in animation-delay-600 text-ink">
+                Building <span className="text-primary">Data-Driven</span>
                 <br />
-                into <span className="text-rust">full-stack</span>
+                <span className="text-rust">intelligent</span>
                 <br />
                 <span className="font-serif italic font-normal text-ink/70">
-                  experiences.
+                  web products.
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-800 font-sans">
-                Hey, I'm Vishal — a 21 year old developer from India, also a CSE student who loves building things that actually work.
+                Hey, I'm Vikram Singh Rathour, a B.Tech CSE student focused on machine learning,
+                data-driven systems, and practical full-stack applications.
               </p>
               <span className="block font-mono text-sm text-primary animate-fade-in animation-delay-800 tracking-wider">
-                Code. Build. Ship. Repeat.
+                Learn. Build. Optimize. Repeat.
               </span>
             </div>
 
@@ -54,19 +55,19 @@ export const Hero = () => {
               >
                 Contact Me <ArrowRight className="w-4 h-4" />
               </GhostButton>
-              <GhostButton size="lg" href="https://drive.google.com/file/d/16IHgbOTx5q7YeKKUd-PCyOJzrXt0ui_0/view?usp=sharing" target="_blank">
+                <GhostButton size="lg" href="/Revised_CV.pdf" target="_blank">
                   <Download className="w-4 h-4" />
-                  View CV
+                  View Resume
                   </GhostButton>
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4 animate-fade-in animation-delay-1200">
+            <div className="flex items-center gap-4 animate-fade-in animation-delay-1200 pt-2">
               <span className="font-mono text-xs text-muted-foreground tracking-wider uppercase">Follow:</span>
               {[
-                { icon: Github, href: "https://github.com/Vishal-047" },
-                { icon: Linkedin, href: "https://www.linkedin.com/in/vishal0407" },
-                { icon: Mail, href: "mailto:vishalrw007@gmail.com" },
+                { icon: Github, href: "https://github.com/RyanV-0407" },
+                { icon: Linkedin, href: "https://linkedin.com/in/vikram-singh-r0407/" },
+                { icon: Mail, href: "mailto:vikramsingh3124k@gmail.com" },
               ].map((social, idx) => (
                 <a
                   key={idx}
@@ -85,14 +86,14 @@ export const Hero = () => {
           {/* Right Column - Profile Image */}
           <div className="relative animate-fade-in animation-delay-1000">
             <div className="relative max-w-md mx-auto">
-              <div className="relative border border-border p-2">
+              <div className="relative section-shell edge-clip p-3">
                 <img
                   src="/meee.jpeg"
-                  alt="Vishal Singh"
-                  className="w-full aspect-[4/5] object-cover"
+                  alt="Vikram Singh Rathour"
+                  className="w-full aspect-[4/5] object-cover edge-clip"
                 />
                 {/* Floating Badge */}
-                <div className="absolute -bottom-4 -right-4 bg-background border border-primary px-4 py-3 animate-float">
+                <div className="absolute -bottom-4 -right-4 bg-background border border-primary rounded-xl px-4 py-3 animate-float shadow-[0_14px_35px_color-mix(in_srgb,var(--color-primary)_28%,transparent)]">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
                     <span className="font-mono text-xs text-primary tracking-wider uppercase">

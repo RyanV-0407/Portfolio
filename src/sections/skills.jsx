@@ -3,48 +3,61 @@ import { StaggerReveal } from "@/components/StaggerReveal";
 
 const skillsData = [
     // Programming
-    { name: "C++", percentage: 80, category: "ProgrammingLanguages", abbr: "C++" },
-    { name: "Python", percentage: 75, category: "ProgrammingLanguages", abbr: "Py" },
-    { name: "Java", percentage: 70, category: "ProgrammingLanguages", abbr: "Ja" },
-    { name: "C", percentage: 70, category: "ProgrammingLanguages", abbr: "C" },
-    
-    // Cybersecurity
-    { name: "Wireshark", percentage: 70, category: "Cybersecurity", abbr: "WS" },
-    { name: "Burp Suite", percentage: 65, category: "Cybersecurity", abbr: "BP" },
-    { name: "Nmap", percentage: 60, category: "Cybersecurity", abbr: "NM" },
-    { name: "Metasploit", percentage: 65, category: "Cybersecurity", abbr: "MS" },
-    { name: "Packet Tracer", percentage: 85, category: "Cybersecurity", abbr: "PT" },
-    { name: "SETOOLKIT", percentage: 65, category: "Cybersecurity", abbr: "SE" },
+    { name: "Python", percentage: 88, category: "Programming", abbr: "Py" },
+    { name: "Java", percentage: 78, category: "Programming", abbr: "Ja" },
+    { name: "C++", percentage: 82, category: "Programming", abbr: "C++" },
+    { name: "C", percentage: 76, category: "Programming", abbr: "C" },
+    { name: "SQL", percentage: 80, category: "Programming", abbr: "SQL" },
+    { name: "JavaScript", percentage: 78, category: "Programming", abbr: "JS" },
 
-    // Frontend
-    { name: "React.js", percentage: 80, category: "Frontend", abbr: "Re" },
-    { name: "HTML", percentage: 95, category: "Frontend", abbr: "HT" },
-    { name: "JavaScript", percentage: 80, category: "Frontend", abbr: "JS" },
-    { name: "Tailwind CSS", percentage: 80, category: "Frontend", abbr: "TW" },
-    { name: "CSS", percentage: 85, category: "Frontend", abbr: "CS" },
-    { name: "Bootstrap", percentage: 80, category: "Frontend", abbr: "BS" },
+    // Machine Learning
+    { name: "Scikit-learn", percentage: 87, category: "Machine Learning", abbr: "SK" },
+    { name: "LightGBM", percentage: 85, category: "Machine Learning", abbr: "LGB" },
+    { name: "TensorFlow / Keras", percentage: 75, category: "Machine Learning", abbr: "TF" },
+    { name: "PyTorch", percentage: 72, category: "Machine Learning", abbr: "PT" },
+    { name: "Feature Engineering", percentage: 84, category: "Machine Learning", abbr: "FE" },
+    { name: "Cosine Similarity", percentage: 86, category: "Machine Learning", abbr: "CS" },
 
-    // Backend
-    { name: "Node.js", percentage: 75, category: "Backend", abbr: "No" },
-    { name: "Express.js", percentage: 70, category: "Backend", abbr: "Ex" },
-    { name: "REST APIs", percentage: 68, category: "Backend", abbr: "API" },
-    { name: "JWT Auth", percentage: 75, category: "Backend", abbr: "JWT" },
+    // Data Analysis
+    { name: "Pandas", percentage: 90, category: "Data Analysis", abbr: "PD" },
+    { name: "NumPy", percentage: 85, category: "Data Analysis", abbr: "NP" },
+    { name: "Matplotlib", percentage: 80, category: "Data Analysis", abbr: "MP" },
+    { name: "EDA", percentage: 86, category: "Data Analysis", abbr: "EDA" },
+    { name: "Data Cleaning", percentage: 88, category: "Data Analysis", abbr: "DC" },
+    { name: "Visualization", percentage: 82, category: "Data Analysis", abbr: "DV" },
+
+    // Web Development
+    { name: "Flask", percentage: 84, category: "Web Development", abbr: "Fl" },
+    { name: "FastAPI", percentage: 80, category: "Web Development", abbr: "FA" },
+    { name: "Streamlit", percentage: 83, category: "Web Development", abbr: "ST" },
+    { name: "React.js", percentage: 80, category: "Web Development", abbr: "Re" },
+    { name: "HTML", percentage: 92, category: "Web Development", abbr: "HT" },
+    { name: "CSS", percentage: 86, category: "Web Development", abbr: "CSS" },
+    { name: "Bootstrap", percentage: 80, category: "Web Development", abbr: "BS" },
 
     // Databases
+    { name: "MySQL", percentage: 82, category: "Databases", abbr: "MY" },
     { name: "MongoDB", percentage: 80, category: "Databases", abbr: "MDB" },
-    { name: "Mongoose", percentage: 80, category: "Databases", abbr: "MG" },
+    { name: "SQLite", percentage: 78, category: "Databases", abbr: "SQ" },
 
     // Tools
-    { name: "Git", percentage: 85, category: "Tools", abbr: "Git" },
-    { name: "GitHub", percentage: 85, category: "Tools", abbr: "GH" },
-    { name: "Firebase", percentage: 60, category: "Tools", abbr: "FB" },
-    { name: "Vercel", percentage: 85, category: "Tools", abbr: "Ver" },
+    { name: "Git", percentage: 84, category: "Tools", abbr: "Git" },
+    { name: "GitHub", percentage: 86, category: "Tools", abbr: "GH" },
+    { name: "Jupyter Notebook", percentage: 88, category: "Tools", abbr: "JN" },
+    { name: "VS Code", percentage: 90, category: "Tools", abbr: "VS" },
+    { name: "Kaggle", percentage: 78, category: "Tools", abbr: "KG" },
+
+    // Soft Skills
+    { name: "Problem Solving", percentage: 90, category: "Soft Skills", abbr: "PS" },
+    { name: "Team Collaboration", percentage: 86, category: "Soft Skills", abbr: "TC" },
+    { name: "Time Management", percentage: 84, category: "Soft Skills", abbr: "TM" },
+    { name: "Adaptability", percentage: 85, category: "Soft Skills", abbr: "AD" },
 ];
 
-const categories = ["ProgrammingLanguages", "Frontend", "Backend", "Databases", "Tools", "Cybersecurity"];
+const categories = ["Programming", "Machine Learning", "Data Analysis", "Web Development", "Databases", "Tools", "Soft Skills"];
 
 export const Skills = () => {
-    const [activeTab, setActiveTab] = useState("ProgrammingLanguages");
+    const [activeTab, setActiveTab] = useState("Programming");
 
     const filteredSkills =
         activeTab === "All Skills"
@@ -59,13 +72,13 @@ export const Skills = () => {
                 <StaggerReveal className="flex flex-col items-center">
 
                     {/* Header */}
-                    <div className="text-center mb-10 w-full relative z-10">
+                    <div className="text-center mb-10 w-full relative z-10 section-shell p-6 md:p-8 edge-clip">
                         <h2 className="text-4xl md:text-5xl font-bold text-ink mb-6 font-serif relative inline-block">
                             Technical Arsenal
                             <div className="absolute left-1/2 -bottom-2 w-1/3 h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent -translate-x-1/2" />
                         </h2>
                         <p className="text-muted-foreground text-sm">
-                            A showcase of technologies I've mastered on my journey as a developer.
+                            A concise view of my technical stack across ML, data, development, and engineering workflow.
                         </p>
                     </div>
 
@@ -76,7 +89,7 @@ export const Skills = () => {
                                 key={cat}
                                 onClick={() => setActiveTab(cat)}
                                 className={`px-4 md:px-5 py-2 rounded-full text-[0.7rem] md:text-xs font-mono tracking-wider transition-all duration-300 ${activeTab === cat
-                                        ? "bg-primary text-primary-foreground font-bold shadow-[0px_4px_12px_rgba(200,134,10,0.3)]"
+                                        ? "bg-primary text-primary-foreground font-bold shadow-[0_10px_24px_color-mix(in_srgb,var(--color-primary)_35%,transparent)]"
                                         : "bg-card border border-border text-muted-foreground hover:border-primary/50 hover:text-ink"
                                     }`}
                                 data-hover
@@ -91,7 +104,7 @@ export const Skills = () => {
                         {filteredSkills.map((skill, idx) => (
                             <div
                                 key={`${activeTab}-${idx}`}
-                                className="bg-card border border-border p-5 rounded-2xl flex flex-col transition-all duration-300 hover:border-primary/40 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(200,134,10,0.15)] animate-fade-in"
+                                className="bg-card border border-border p-5 rounded-2xl flex flex-col transition-all duration-300 hover:border-primary/55 hover:-translate-y-1.5 hover:shadow-[0_16px_30px_color-mix(in_srgb,var(--color-accent)_24%,transparent)] animate-fade-in"
                                 style={{ animationDelay: `${(idx % 12) * 50}ms` }}
                             >
                                 {/* Top Row: Icon, Name, % */}
@@ -142,7 +155,7 @@ export const Skills = () => {
                         <div className="flex flex-wrap justify-center gap-4">
                             {/* LeetCode */}
                             <a
-                                href="https://leetcode.com/u/Vishal407/"
+                                href="https://leetcode.com/u/vikramsingh3124k/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-3 px-5 py-3 bg-card border border-border rounded-xl hover:border-primary/50 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(200,134,10,0.15)] transition-all duration-300 group"
@@ -151,21 +164,21 @@ export const Skills = () => {
                                 <img src="/leetcode.png" alt="LeetCode" className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity dark:invert" />
                                 <div className="flex flex-col leading-tight">
                                     <span className="font-bold text-ink text-sm font-sans">LeetCode</span>
-                                    <span className="text-[0.6rem] text-muted-foreground font-mono tracking-wider uppercase">@Vishal407</span>
+                                    <span className="text-[0.6rem] text-muted-foreground font-mono tracking-wider uppercase">100+ problems solved</span>
                                 </div>
                             </a>
                             {/* GeeksforGeeks */}
                             <a
-                                href="https://www.geeksforgeeks.org/profile/vishal407"
+                                href="https://www.hackerrank.com/profile/vikramsingh3124k"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-3 px-5 py-3 bg-card border border-border rounded-xl hover:border-primary/50 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(200,134,10,0.15)] transition-all duration-300 group"
                                 data-hover
                             >
-                                <img src="/gfg.svg" alt="GeeksforGeeks" className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
+                                <img src="/gfg.svg" alt="HackerRank" className="w-6 h-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
                                 <div className="flex flex-col leading-tight">
-                                    <span className="font-bold text-ink text-sm font-sans">GeeksforGeeks</span>
-                                    <span className="text-[0.6rem] text-muted-foreground font-mono tracking-wider uppercase">@vishal407</span>
+                                    <span className="font-bold text-ink text-sm font-sans">HackerRank</span>
+                                    <span className="text-[0.6rem] text-muted-foreground font-mono tracking-wider uppercase">5 stars in 4 domains</span>
                                 </div>
                             </a>
                         </div>

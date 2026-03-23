@@ -26,8 +26,8 @@ export const LoadingScreen = ({ onComplete }) => {
         isFading ? "opacity-0" : "opacity-100"
       }`}
       style={{
-        backgroundColor: "#1A1108", // dark ink
-        color: "#F5EFE0", // cream
+        backgroundColor: "var(--color-ink)",
+        color: "var(--color-background)",
       }}
     >
       <div className="relative mb-8 w-24 h-24 sm:w-32 sm:h-32 flex justify-center items-center">
@@ -35,7 +35,7 @@ export const LoadingScreen = ({ onComplete }) => {
           viewBox="0 0 100 100"
           className="w-full h-full"
           fill="none"
-          stroke="#F5EFE0"
+          stroke="var(--color-background)"
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -67,7 +67,7 @@ export const LoadingScreen = ({ onComplete }) => {
           animation: "fadeIn 1s ease-out forwards 1.2s",
         }}
       >
-        Vishal Singh &mdash; Full Stack Developer
+        Vikram Singh Rathour &mdash; AI/ML Developer
       </div>
 
       {/* Progress Bar Container */}
@@ -76,7 +76,7 @@ export const LoadingScreen = ({ onComplete }) => {
         <div
           className="h-full w-full"
           style={{
-            backgroundColor: "#C8860A", // amber
+            background: "linear-gradient(90deg, var(--color-primary), var(--color-accent))",
             transformOrigin: "left",
             transform: "scaleX(0)",
             animation: "fillProgress 2s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.2s",

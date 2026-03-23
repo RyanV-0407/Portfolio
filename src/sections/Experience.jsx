@@ -2,57 +2,30 @@ import { StaggerReveal } from "@/components/StaggerReveal";
 
 const experiences = [
   {
-    period: "February 2026",
-    role: "Backend Project",
-    company: "URL Shortener",
+    period: "Jun 2025 - Jul 2025",
+    role: "DSA Using Java Training",
+    company: "Cipher Schools",
     description:
-      "Built a fast, lightweight URL shortening service that converts long URLs into clean, shareable short links. Implemented redirect logic, link storage, and instant resolution — strengthening core backend fundamentals like routing, middleware, and database operations.",
-    technologies: ["JavaScript", "Node.js", "Express.js", "MongoDB", "EJS"],
+      "Completed structured training in Java, OOP, and algorithms including Binary Search, Quick Sort, and Merge Sort. Built an Event Reminder System and solved 50+ DSA problems on LeetCode and HackerRank.",
+    technologies: ["Java", "OOP", "DSA", "LeetCode", "HackerRank"],
     current: false,
   },
   {
-    period: "July 2025",
-    role: "Full-Stack Project",
-    company: "Eco-Retail",
+    period: "2025",
+    role: "Hackathon Achievement",
+    company: "LPU Hackathon",
     description:
-      "Designed and implemented scalable backend architecture with JWT-based authentication, role-based access control, and 15+ REST APIs. Optimized MongoDB queries using indexing and pagination, reducing average API response time by ~25ms.",
-    technologies: ["Next.js", "Node.js", "Express.js", "MongoDB", "Firebase", "YOLOv8", "JWT"],
+      "Secured runner-up position at the LPU Hackathon by delivering a working prototype under strict time constraints with strong teamwork and rapid iteration.",
+    technologies: ["Problem Solving", "Team Collaboration", "Rapid Prototyping"],
     current: false,
   },
   {
-    period: "July 2025",
-    role: "C++ & DSA Training",
-    company: "Self-Learning",
+    period: "Ongoing",
+    role: "Competitive Coding Milestones",
+    company: "HackerRank and LeetCode",
     description:
-      "Completed structured C++ programming training focused on OOPs and Data Structures. Built a hospital ER triage system using Binary Heap (Priority Queue) with treat-next, remove, and CSV export features — available as both a web app and C++ console version.",
-    technologies: ["C++", "HTML", "CSS", "JavaScript", "STL"],
-    current: false,
-  },
-  {
-    period: "June 2025",
-    role: "National Hackathon Finalist",
-    company: "Google Office, Gurgaon — National Level Hackathon",
-    description:
-      "Advanced to the final round among 20 teams competing nationwide out of 4000+ participants. Demonstrated strong problem-solving, full-stack development, and teamwork skills under pressure at Google's office, Gurgaon.",
-    technologies: ["Problem Solving", "Full-Stack", "Team Collaboration", "Rapid Prototyping"],
-    current: false,
-  },
-  {
-    period: "May 2025",
-    role: "Full-Stack Project",
-    company: "Medicare-AI",
-    description:
-      "Built a secure healthcare management system with patient records, appointment scheduling, and OCR-based document processing. Integrated Stripe payments and Twilio notifications with responsive UI across desktop and mobile.",
-    technologies: ["Next.js", "React", "TypeScript", "MongoDB", "Stripe", "Twilio", "OCR"],
-    current: false,
-  },
-  {
-    period: "February 2024",
-    role: "Hackathon Finalist",
-    company: "College Level Hackathon — Lovely Professional University",
-    description:
-      "Competed in a college-level hackathon and advanced to the final round, showcasing problem-solving and rapid development skills. Built and delivered a functional web project under tight time constraints.",
-    technologies: ["HTML", "CSS", "JavaScript"],
+      "Achieved 5-star ratings on HackerRank in Python, C++, Java, and Problem Solving, and solved 100+ DSA problems on LeetCode through consistent algorithm practice.",
+    technologies: ["Python", "C++", "Java", "Problem Solving", "DSA"],
     current: false,
   },
 ];
@@ -66,16 +39,16 @@ export const Experience = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <StaggerReveal className="max-w-3xl mx-auto text-center mb-16">
-          <span className="section-label">My Journey</span>
+          <span className="section-label">Growth Timeline</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-ink">
-            Experience that{" "}
+            Training and
             <span className="font-serif italic font-normal text-rust">
-              speaks volumes.
+              {" "}achievements.
             </span>
           </h2>
           <p className="text-muted-foreground">
-            From national hackathons to hands-on projects — a timeline of how
-            I've grown as a developer, one challenge at a time.
+            A snapshot of structured learning, competition milestones, and
+            consistent problem-solving progress.
           </p>
         </StaggerReveal>
 
@@ -84,7 +57,7 @@ export const Experience = () => {
           <div
             className="absolute left-0 md:left-1/2 top-0 bottom-0 w-[2px] md:-translate-x-1/2"
             style={{
-              background: "linear-gradient(to bottom, #C8860A, #8B3A1C, transparent)",
+              background: "linear-gradient(to bottom, var(--color-primary), var(--color-accent), transparent)",
             }}
           />
 

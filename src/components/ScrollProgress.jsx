@@ -22,7 +22,7 @@ export const ScrollProgress = () => {
         left: 0,
         height: 3,
         width: `${progress}%`,
-        background: "linear-gradient(90deg, #C8860A, #8B3A1C)",
+        background: "linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-rust))",
         zIndex: 99990,
         transition: "width 0.1s linear",
       }}

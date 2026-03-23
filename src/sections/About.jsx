@@ -2,58 +2,46 @@ import { useState, useEffect, useRef } from "react";
 import { StaggerReveal } from "@/components/StaggerReveal";
 
 const skills = [
-  { label: "Full Stack Dev", value: 82, icon: "⚡" },
-  { label: "DSA / LeetCode", value: 75, icon: "🧠" },
-  { label: "Cybersecurity", value: 65, icon: "🛡️" },
-  { label: "React / Next.js", value: 85, icon: "⚛️" },
-  { label: "Node / Express", value: 80, icon: "🔧" },
-  { label: "Databases", value: 72, icon: "🗄️" },
+  { label: "Python / ML", value: 88, icon: "🤖", domain: "Modeling" },
+  { label: "Data Analysis", value: 86, icon: "📊", domain: "Analytics" },
+  { label: "DSA / Problem Solving", value: 84, icon: "🧠", domain: "Core CS" },
+  { label: "React / Frontend", value: 80, icon: "⚛️", domain: "UI Engineering" },
+  { label: "Flask / FastAPI", value: 82, icon: "⚙️", domain: "API" },
+  { label: "Databases", value: 78, icon: "🗄️", domain: "Data Layer" },
 ];
 
-function CircularSkill({ skill, index, animate }) {
-  const radius = 36;
-  const circumference = 2 * Math.PI * radius;
-  const progress = animate ? (skill.value / 100) * circumference : 0;
-  const dash = circumference - progress;
-
+function SkillRow({ skill, animate, index }) {
   return (
     <div
-      className="flex flex-col items-center gap-2"
+      className="border border-border rounded-xl bg-background/70 px-4 py-4"
       style={{
-        animation: animate ? "fadeUp 0.6s ease forwards" : "none",
-        animationDelay: `${index * 0.1}s`,
-        opacity: 0,
+        animation: animate ? "fadeUp 0.5s ease both" : "none",
+        animationDelay: `${index * 90}ms`,
       }}
     >
-      <div className="relative w-24 h-24 flex items-center justify-center">
-        <svg className="absolute top-0 left-0 w-full h-full -rotate-90" viewBox="0 0 88 88">
-          <circle cx="44" cy="44" r={radius} fill="none" stroke="#D4C9A8" strokeWidth="7" />
-          <circle
-            cx="44" cy="44" r={radius} fill="none"
-            stroke="#C8860A" strokeWidth="7" strokeOpacity="0.2"
-            strokeDasharray={circumference} strokeDashoffset={dash}
-            style={{ transition: "stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1)" }}
-          />
-          <circle
-            cx="44" cy="44" r={radius} fill="none"
-            stroke="#C8860A" strokeWidth="4" strokeLinecap="round"
-            strokeDasharray={circumference} strokeDashoffset={dash}
-            style={{
-              transition: "stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1)",
-              filter: "drop-shadow(0 0 6px rgba(200,134,10,0.4))",
-            }}
-          />
-        </svg>
-        <div className="flex flex-col items-center z-10">
-          <span style={{ fontSize: "1.3rem" }}>{skill.icon}</span>
-          <span className="font-mono font-bold text-primary" style={{ fontSize: "0.95rem" }}>
-            {skill.value}%
+      <div className="flex items-start justify-between gap-3 mb-3">
+        <div className="flex items-center gap-3 min-w-0">
+          <span className="w-8 h-8 rounded-lg border border-primary/30 bg-primary/10 flex items-center justify-center text-sm shrink-0">
+            {skill.icon}
           </span>
+          <div className="min-w-0">
+            <p className="text-sm font-semibold text-ink truncate">{skill.label}</p>
+            <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-muted-foreground">{skill.domain}</p>
+          </div>
         </div>
+        <span className="font-mono text-xs text-primary font-semibold">{skill.value}%</span>
       </div>
-      <span className="font-mono text-xs text-muted-foreground font-semibold tracking-wider text-center">
-        {skill.label}
-      </span>
+
+      <div className="h-1.5 rounded-full bg-border/60 overflow-hidden">
+        <div
+          className="h-full rounded-full"
+          style={{
+            width: animate ? `${skill.value}%` : "0%",
+            transition: "width 0.95s cubic-bezier(0.22, 1, 0.36, 1)",
+            background: "linear-gradient(90deg, var(--color-primary), var(--color-accent))",
+          }}
+        />
+      </div>
     </div>
   );
 }
@@ -64,121 +52,86 @@ export const About = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setAnimate(true); },
+      ([entry]) => {
+        if (entry.isIntersecting) setAnimate(true);
+      },
       { threshold: 0.3 }
     );
+
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
     <section id="about" className="py-32 relative overflow-hidden">
-      {/* Watermark */}
       <span className="watermark -top-8 left-4 md:left-12">02</span>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-
-          {/* Left Column */}
           <StaggerReveal className="space-y-8">
             <div>
               <span className="section-label">About Me</span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold leading-tight text-ink">
-              Building secure, scalable web experiences —
-              <span className="font-serif italic font-normal text-rust">
-                {" "}one component at a time.
-              </span>
+              Building practical AI and data products —
+              <span className="font-serif italic font-normal text-rust"> one meaningful solution at a time.</span>
             </h2>
 
             <div className="space-y-4 text-muted-foreground">
               <p>
-                I'm Vishal Singh, a B.Tech CSE student passionate about full-stack
-                development and cybersecurity. I build user-centered web applications
-                using React.js, Next.js, Node.js, and MongoDB — focused on solving
-                real problems with clean, scalable, and secure code.
+                I'm Vikram Singh Rathour, a B.Tech CSE student at Lovely Professional University with strong interests in machine
+                learning, data analysis, and full-stack development. I enjoy turning data into actionable products with clean
+                engineering and practical UX.
               </p>
               <p>
-                My cybersecurity background gives me a unique edge — I don't just
-                build features, I build systems that are reliable and safe by design.
-                I've competed in national-level hackathons and worked across 10+ tech
-                stacks — turning complex problems into clean, scalable solutions.
+                My recent work includes a content-based music recommendation system and a multi-horizon energy demand forecasting
+                platform using LightGBM, feature engineering, and interactive dashboards. I focus on creating systems that are
+                understandable, testable, and deployable.
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new technologies,
-                solving problems on LeetCode, or learning something new.
+                I am a runner-up hackathon participant, hold 5-star HackerRank badges in multiple domains, and consistently sharpen
+                problem-solving through DSA and competitive coding practice.
               </p>
             </div>
 
-            <div className="border border-primary/30 bg-card p-6">
+            <div className="border border-primary/30 bg-card p-6 rounded-2xl">
               <p className="text-lg font-serif italic text-ink">
-                "My goal is simple — write code that works today, scales tomorrow,
-                and never breaks at 3AM"
+                "My goal is to build reliable, intelligent solutions that make data useful for real people and real decisions."
               </p>
             </div>
           </StaggerReveal>
 
-          {/* Right Column - Skill Graph */}
-          <div
-            ref={ref}
-            style={{
-              background: "linear-gradient(135deg, #EDE6D3 0%, #F5EFE0 50%, #EDE6D3 100%)",
-              border: "1px solid #D4C9A8",
-              borderRadius: 0,
-              padding: "2.5rem 2rem",
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
-            {/* Background grid */}
-            <div style={{
-              position: "absolute", inset: 0, opacity: 0.06,
-              backgroundImage: "linear-gradient(#C8860A 1px, transparent 1px), linear-gradient(90deg, #C8860A 1px, transparent 1px)",
-              backgroundSize: "32px 32px",
-              pointerEvents: "none",
-            }} />
-
-            {/* Header */}
-            <div className="text-center mb-8" style={{ position: "relative" }}>
-              <div style={{
-                display: "inline-block",
-                background: "rgba(200,134,10,0.1)",
-                border: "1px solid rgba(200,134,10,0.3)",
-                padding: "4px 16px",
-                marginBottom: "0.75rem",
-              }}>
-                <span className="font-mono text-primary" style={{ fontSize: "0.7rem", letterSpacing: "0.15em" }}>
-                  ● SKILL MATRIX
-                </span>
-              </div>
-              <h3 className="font-mono text-ink font-bold" style={{ fontSize: "1.1rem", letterSpacing: "0.05em" }}>
-                Technical Proficiency based on my current Work/Project
-              </h3>
-            </div>
-
-            {/* Skill Circles */}
-            <div style={{
-              display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
-              gap: "2rem 1rem", position: "relative",
-            }}>
-              {skills.map((skill, i) => (
-                <CircularSkill key={i} skill={skill} index={i} animate={animate} />
-              ))}
-            </div>
-
-            {/* Footer Stats */}
-            <div style={{
-              marginTop: "2rem", borderTop: "1px solid #D4C9A8",
-              paddingTop: "1.5rem", display: "flex",
-              justifyContent: "center", gap: "2.5rem",
-            }}>
-              {[["200+", "LeetCode"], ["15+", "APIs Built"], ["10+", "Tech Stacks"]].map(([num, label]) => (
-                <div key={label} className="text-center">
-                  <div className="font-mono font-bold text-primary" style={{ fontSize: "1.2rem" }}>{num}</div>
-                  <div className="font-mono text-muted-foreground" style={{ fontSize: "0.7rem", letterSpacing: "0.1em" }}>{label}</div>
+          <div ref={ref} className="section-shell edge-clip p-7 md:p-8">
+            <div className="relative z-10">
+              <div className="flex items-center justify-between gap-4 mb-6">
+                <div>
+                  <span className="section-label">Capability Snapshot</span>
+                  <h3 className="text-xl md:text-2xl font-bold text-ink mt-2">Current strengths across core areas</h3>
                 </div>
-              ))}
+                <div className="text-right">
+                  <p className="font-mono text-[0.65rem] tracking-[0.14em] text-muted-foreground uppercase">Average Score</p>
+                  <p className="text-2xl font-bold text-primary">83%</p>
+                </div>
+              </div>
+
+              <div className="grid gap-3">
+                {skills.map((skill, index) => (
+                  <SkillRow key={skill.label} skill={skill} animate={animate} index={index} />
+                ))}
+              </div>
+
+              <div className="mt-6 pt-5 border-t border-border flex items-center justify-center gap-8 text-center">
+                {["100+|LeetCode", "5★|HackerRank", "4|Major ML Projects"].map((entry) => {
+                  const [num, label] = entry.split("|");
+                  return (
+                    <div key={entry}>
+                      <p className="font-mono text-lg font-bold text-primary">{num}</p>
+                      <p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-muted-foreground">{label}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -186,7 +139,7 @@ export const About = () => {
 
       <style>{`
         @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(20px); }
+          from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
         }
       `}</style>

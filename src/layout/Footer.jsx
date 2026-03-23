@@ -1,11 +1,11 @@
 import { Github, Linkedin, Mail, Code2, Trophy } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/vishal-047", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/vishal0407", label: "LinkedIn" },
-  { icon: Code2, href: "https://leetcode.com/u/Vishal407/", label: "LeetCode" },
-  { icon: Trophy, href: "https://www.geeksforgeeks.org/profile/vishal407", label: "GFG" },
-  { icon: Mail, href: "mailto:vishalrw007@gmail.com", label: "Mail" },
+  { icon: Github, href: "https://github.com/RyanV-0407", label: "GitHub" },
+  { icon: Linkedin, href: "https://linkedin.com/in/vikram-singh-r0407/", label: "LinkedIn" },
+  { icon: Code2, href: "https://leetcode.com/u/vikramsingh3124k/", label: "LeetCode" },
+  { icon: Trophy, href: "https://www.hackerrank.com/profile/vikramsingh3124k", label: "HackerRank" },
+  { icon: Mail, href: "mailto:vikramsingh3124k@gmail.com", label: "Mail" },
 ];
 
 const footerLinks = [
@@ -20,16 +20,22 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 border-t border-border" style={{ background: "#635547ff" }}>
+    <footer
+      className="py-12 border-t border-border"
+      style={{
+        background:
+          "linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 90%, var(--color-secondary) 10%) 0%, color-mix(in srgb, var(--color-surface) 65%, var(--color-ink) 35%) 100%)",
+      }}
+    >
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
-            <a href="#" className="font-serif text-xl tracking-tight text-amber-100" data-hover>
-              VS<span className="text-primary">.</span>
+            <a href="#" className="font-serif text-xl tracking-tight text-foreground" data-hover>
+              VR<span className="text-primary">.</span>
             </a>
-            <p className="text-sm mt-2" style={{ color: "#6B5B3E" }}>
-              © {currentYear} Vishal Singh. All rights reserved.
+            <p className="text-sm mt-2" style={{ color: "var(--color-muted-foreground)" }}>
+              © {currentYear} Vikram Singh Rathour. All rights reserved.
             </p>
           </div>
 
@@ -40,7 +46,7 @@ export const Footer = () => {
                 key={link.href}
                 href={link.href}
                 className="font-mono text-xs tracking-wider uppercase hover:text-primary transition-colors"
-                style={{ color: "#6B5B3E" }}
+                style={{ color: "var(--color-muted-foreground)" }}
                 data-hover
               >
                 {link.label}
@@ -58,10 +64,10 @@ export const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label={social.label}
                 className="p-2 border transition-all"
-                style={{ borderColor: "#3D2F18", color: "#6B5B3E" }}
+                style={{ borderColor: "var(--color-border)", color: "var(--color-muted-foreground)" }}
                 data-hover
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#C8860A"; e.currentTarget.style.color = "#C8860A"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#3D2F18"; e.currentTarget.style.color = "#6B5B3E"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--color-primary)"; e.currentTarget.style.color = "var(--color-primary)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--color-border)"; e.currentTarget.style.color = "var(--color-muted-foreground)"; }}
               >
                 <social.icon className="w-5 h-5" />
               </a>

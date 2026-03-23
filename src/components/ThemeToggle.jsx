@@ -16,10 +16,12 @@ export const ThemeToggle = ({ theme, onToggle }) => {
         width: 44,
         height: 44,
         borderRadius: "50%",
-        border: isDark ? "1.5px solid rgba(255,200,80,0.6)" : "1.5px solid var(--color-border)",
+        border: isDark
+          ? "1.5px solid color-mix(in srgb, var(--color-primary) 72%, transparent)"
+          : "1.5px solid color-mix(in srgb, var(--color-border) 90%, var(--color-primary) 10%)",
         background: isDark
-          ? "rgba(20,18,14,0.85)"
-          : "rgba(245,239,224,0.85)",
+          ? "color-mix(in srgb, var(--color-surface) 82%, transparent)"
+          : "color-mix(in srgb, var(--color-background) 76%, var(--color-secondary) 24%)",
         backdropFilter: "blur(12px)",
         display: "flex",
         alignItems: "center",
@@ -27,14 +29,14 @@ export const ThemeToggle = ({ theme, onToggle }) => {
         cursor: isDark ? "none" : "none",
         transition: "all 0.3s ease",
         boxShadow: isDark
-          ? "0 0 20px rgba(255,200,80,0.15)"
-          : "0 2px 8px rgba(0,0,0,0.08)",
+          ? "0 0 24px color-mix(in srgb, var(--color-primary) 38%, transparent)"
+          : "0 8px 22px color-mix(in srgb, var(--color-accent) 22%, transparent)",
       }}
     >
       {isDark ? (
-        <Sun size={18} color="#ffc850" strokeWidth={2} />
+        <Sun size={18} color="var(--color-primary)" strokeWidth={2} />
       ) : (
-        <Moon size={18} color="#1A1108" strokeWidth={2} />
+        <Moon size={18} color="var(--color-ink)" strokeWidth={2} />
       )}
     </button>
   );

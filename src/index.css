@@ -1,49 +1,53 @@
 @import "tailwindcss";
 
 @theme {
-  /* WARM EDITORIAL PALETTE */
-  --color-background: #F5EFE0;
-  --color-foreground: #1A1108;
+  /* AURORA-TECH PALETTE */
+  --color-background: #f2f7ff;
+  --color-foreground: #081226;
 
-  --color-card: #EDE6D3;
+  --color-card: #ecf4ff;
 
-  --color-primary: #C8860A;
-  --color-primary-foreground: #F5EFE0;
+  --color-primary: #0ea5a2;
+  --color-primary-foreground: #eaffff;
 
-  --color-secondary: #F0E8D4;
-  --color-secondary-foreground: #8B3A1C;
+  --color-secondary: #deefff;
+  --color-secondary-foreground: #0f4f7a;
 
-  --color-muted: #E8DFC9;
-  --color-muted-foreground: #6B5B3E;
+  --color-muted: #d9e7f8;
+  --color-muted-foreground: #406081;
 
-  --color-border: #D4C9A8;
+  --color-border: #a8c4e6;
 
   --radius: 0.55rem;
 
-  --color-highlight: #8B3A1C;
-  --color-surface: #EDE6D3;
-  --color-ink: #1A1108;
-  --color-rust: #8B3A1C;
-  --color-amber: #C8860A;
+  --color-highlight: #ff7a45;
+  --color-surface: #f6faff;
+  --color-ink: #081226;
+  --color-rust: #ff7a45;
+  --color-amber: #0ea5a2;
+  --color-accent: #1d4ed8;
+  --color-glow: rgba(14, 165, 162, 0.22);
 }
 
 /* Dark mode overrides — activated by .dark on <html> */
 .dark {
-  --color-background: #0a0a0a;
-  --color-foreground: #e8e0d0;
-  --color-card: #161412;
-  --color-primary: #ffc850;
-  --color-primary-foreground: #0a0a0a;
-  --color-secondary: #1a1714;
-  --color-secondary-foreground: #d4a04a;
-  --color-muted: #1e1b16;
-  --color-muted-foreground: #a89878;
-  --color-border: #2a2520;
-  --color-highlight: #d4a04a;
-  --color-surface: #141210;
-  --color-ink: #e8e0d0;
-  --color-rust: #d4a04a;
-  --color-amber: #ffc850;
+  --color-background: #040b16;
+  --color-foreground: #e7f2ff;
+  --color-card: #0b1728;
+  --color-primary: #2dd4bf;
+  --color-primary-foreground: #03161b;
+  --color-secondary: #0f233a;
+  --color-secondary-foreground: #7dc7ff;
+  --color-muted: #10213a;
+  --color-muted-foreground: #8da8c7;
+  --color-border: #224567;
+  --color-highlight: #ff8a5b;
+  --color-surface: #091a2f;
+  --color-ink: #e7f2ff;
+  --color-rust: #ff8a5b;
+  --color-amber: #2dd4bf;
+  --color-accent: #7dc7ff;
+  --color-glow: rgba(45, 212, 191, 0.28);
 }
 
 @layer base {
@@ -62,22 +66,63 @@
 
   body {
     background-color: var(--color-background);
+    background-image:
+      radial-gradient(1200px 600px at -10% 10%, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent 62%),
+      radial-gradient(800px 500px at 110% 20%, color-mix(in srgb, var(--color-accent) 14%, transparent), transparent 60%),
+      radial-gradient(700px 420px at 50% 110%, color-mix(in srgb, var(--color-rust) 10%, transparent), transparent 62%);
     color: var(--color-foreground);
-    font-family: "Instrument Sans", sans-serif;
+    font-family: "Manrope", sans-serif;
     overflow-x: hidden;
     transition: background-color 0.4s ease, color 0.4s ease;
+    line-height: 1.58;
+  }
+
+  section[id] {
+    scroll-margin-top: 6rem;
+    position: relative;
+  }
+
+  section[id]:not(#home)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: clamp(1.2rem, 8vw, 6rem);
+    right: clamp(1.2rem, 8vw, 6rem);
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--color-border) 92%, transparent),
+      transparent
+    );
+    opacity: 0.56;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-border) 12%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 46px 46px;
+    opacity: 0.28;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Playfair Display", serif;
+    font-family: "Sora", sans-serif;
   }
 
   .font-serif {
-    font-family: "Playfair Display", serif;
+    font-family: "Sora", sans-serif;
   }
 
   .font-mono {
-    font-family: "DM Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
   }
 
   /* Scrollbar */
@@ -99,13 +144,14 @@
 @layer components {
   /* Glass cards — warm tint */
   .glass {
-    background-color: color-mix(in srgb, var(--color-surface) 70%, transparent);
-    backdrop-filter: blur(16px);
-    border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+    background-color: color-mix(in srgb, var(--color-surface) 76%, transparent);
+    backdrop-filter: blur(14px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
+    box-shadow: 0 8px 34px color-mix(in srgb, var(--color-glow) 45%, transparent);
   }
 
   .glass-strong {
-    background-color: color-mix(in srgb, var(--color-surface) 90%, transparent);
+    background-color: color-mix(in srgb, var(--color-surface) 88%, transparent);
     backdrop-filter: blur(24px);
   }
 
@@ -115,10 +161,10 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.75rem;
-    border: 1px solid var(--color-ink);
-    background: transparent;
+    border: 1px solid color-mix(in srgb, var(--color-primary) 45%, var(--color-border));
+    background: color-mix(in srgb, var(--color-surface) 70%, transparent);
     color: var(--color-ink);
-    font-family: "DM Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 0.85rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -131,8 +177,8 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--color-primary);
-    transform: scaleX(0);
+    background: linear-gradient(120deg, var(--color-primary), var(--color-accent));
+    transform: scaleX(0) skewX(-16deg);
     transform-origin: left;
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: -1;
@@ -141,10 +187,11 @@
   .ghost-btn:hover {
     color: var(--color-primary-foreground);
     border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-primary) 55%, transparent), 0 10px 28px color-mix(in srgb, var(--color-glow) 55%, transparent);
   }
 
   .ghost-btn:hover::before {
-    transform: scaleX(1);
+    transform: scaleX(1) skewX(-16deg);
   }
 
   .ghost-btn-sm {
@@ -167,7 +214,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "DM Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--color-primary);
@@ -181,7 +228,7 @@
   /* Number watermark */
   .watermark {
     position: absolute;
-    font-family: "Playfair Display", serif;
+    font-family: "Sora", sans-serif;
     font-size: clamp(8rem, 20vw, 20rem);
     font-weight: 900;
     color: color-mix(in srgb, var(--color-primary) 8%, transparent);
@@ -193,7 +240,7 @@
 
   /* Section label */
   .section-label {
-    font-family: "DM Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -205,7 +252,7 @@
     padding: 0.35rem 1rem;
     border: 1px solid var(--color-border);
     background: transparent;
-    font-family: "DM Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 0.7rem;
     color: var(--color-muted-foreground);
     letter-spacing: 0.05em;
@@ -216,7 +263,63 @@
   .filter-tag.active {
     border-color: var(--color-primary);
     color: var(--color-primary);
-    background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+    background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  }
+
+  .nav-shell {
+    border: 1px solid color-mix(in srgb, var(--color-border) 78%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 12px 36px color-mix(in srgb, var(--color-accent) 14%, transparent);
+    border-radius: 999px;
+  }
+
+  .section-shell {
+    position: relative;
+    border: 1px solid color-mix(in srgb, var(--color-border) 86%, transparent);
+    background:
+      linear-gradient(140deg, color-mix(in srgb, var(--color-secondary) 45%, var(--color-surface) 55%), color-mix(in srgb, var(--color-surface) 78%, var(--color-background) 22%));
+    box-shadow:
+      0 20px 58px color-mix(in srgb, var(--color-accent) 14%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--color-background) 70%, transparent);
+    border-radius: 1.35rem;
+  }
+
+  .section-shell::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(120deg, transparent 15%, color-mix(in srgb, var(--color-primary) 14%, transparent) 48%, transparent 80%);
+    opacity: 0.34;
+  }
+
+  .edge-clip {
+    clip-path: polygon(0 0, 96% 0, 100% 22%, 100% 100%, 4% 100%, 0 80%);
+  }
+
+  .premium-separator {
+    height: 34px;
+    position: relative;
+    pointer-events: none;
+  }
+
+  .premium-separator::before {
+    content: "";
+    position: absolute;
+    left: clamp(1rem, 8vw, 7rem);
+    right: clamp(1rem, 8vw, 7rem);
+    top: 16px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--color-primary) 52%, transparent),
+      color-mix(in srgb, var(--color-accent) 40%, transparent),
+      transparent
+    );
+    opacity: 0.44;
   }
 }
 
@@ -258,11 +361,15 @@
   }
 
   .animate-fade-in {
-    animation: fade-in 0.8s ease-out both;
+    animation: fade-in 0.86s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .animate-float {
     animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fade-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .animation-delay-100 { animation-delay: 100ms; }
@@ -299,6 +406,15 @@
     .editorial-grid .span-4 {
       grid-column: span 12;
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

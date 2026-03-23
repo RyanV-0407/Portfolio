@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 const POINT_COUNT = 42;
 const PROXIMITY = 150;
-const COLORS = ["#C8860A", "#8B3A1C", "#D4A04A"];
+const COLORS = ["#0EA5A2", "#1D4ED8", "#FF7A45"];
 
 export const GeometricMesh = () => {
   const canvasRef = useRef(null);

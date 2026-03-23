@@ -3,27 +3,27 @@ import { GraduationCap, MapPin, Calendar } from "lucide-react";
 
 const education = [
   {
-    institution: "Lovely Professional University",
-    degree: "Bachelor of Technology — Computer Science and Engineering",
-    highlight: "CGPA: 7.78",
-    location: "Punjab, India",
-    period: "Since August 2023",
+    institution: "Lovely Professional University, Phagwara",
+    degree: "B.Tech - Computer Science and Engineering",
+    highlight: "CGPA: 7.70",
+    location: "Phagwara, Punjab",
+    period: "Jul 2023 - Jul 2027",
     current: true,
   },
   {
-    institution: "Little Flower Senior Secondary School",
-    degree: "Intermediate (Class XII)",
-    highlight: "Percentage: 76",
-    location: "Gida, Gorakhpur",
-    period: "April 2021 – March 2022",
+    institution: "Ramakrishna Vivekananda Vidyapeeth, Anuppur",
+    degree: "Intermediate (PCM)",
+    highlight: "Score: 95.6%",
+    location: "Anuppur, Madhya Pradesh",
+    period: "Jun 2021 - Jul 2022",
     current: false,
   },
   {
-    institution: "Little Flower Senior Secondary School",
-    degree: "Matriculation (Class X)",
-    highlight: "Percentage: 84",
-    location: "Gida, Gorakhpur",
-    period: "April 2019 – March 2020",
+    institution: "Ramakrishna Vivekananda Vidyapeeth, Anuppur",
+    degree: "Matriculation",
+    highlight: "Score: 90%",
+    location: "Anuppur, Madhya Pradesh",
+    period: "Jul 2019 - Jul 2020",
     current: false,
   },
 ];
@@ -38,7 +38,7 @@ export const Education = () => {
         <StaggerReveal className="space-y-14">
 
           {/* Section Header */}
-          <div className="flex items-end gap-8">
+          <div className="flex items-end gap-8 section-shell edge-clip p-6 md:p-8">
             <div className="shrink-0">
               <span className="section-label mb-3 block">Academic Background</span>
               <h2 className="text-4xl md:text-5xl font-bold text-ink leading-tight">
@@ -54,15 +54,15 @@ export const Education = () => {
             {education.map((edu, idx) => (
               <div key={idx} className="relative group">
                 {/* 3D depth layer */}
-                <div className="absolute inset-0 translate-x-[5px] translate-y-[5px] border border-border bg-card transition-transform duration-300 group-hover:translate-x-[8px] group-hover:translate-y-[8px]" />
+                <div className="absolute inset-0 translate-x-[5px] translate-y-[5px] border border-border bg-card rounded-2xl transition-transform duration-300 group-hover:translate-x-[8px] group-hover:translate-y-[8px]" />
 
                 {/* Foreground card */}
-                <div className="relative bg-background border border-primary/30 px-8 py-6 transition-transform duration-300 group-hover:-translate-x-[3px] group-hover:-translate-y-[3px]">
+                <div className="relative bg-background border border-primary/30 rounded-2xl px-8 py-6 transition-transform duration-300 group-hover:-translate-x-[3px] group-hover:-translate-y-[3px] edge-clip">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
 
                     {/* Left — degree info */}
                     <div className="flex gap-4 items-start">
-                      <span className="mt-1 w-9 h-9 flex items-center justify-center border border-primary/30 shrink-0 text-primary" style={{ background: "rgba(200,134,10,0.06)" }}>
+                      <span className="mt-1 w-9 h-9 flex items-center justify-center border border-primary/30 shrink-0 text-primary rounded-lg" style={{ background: "color-mix(in srgb, var(--color-primary) 13%, transparent)" }}>
                         <GraduationCap size={16} />
                       </span>
                       <div className="space-y-1">

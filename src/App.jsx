@@ -62,12 +62,19 @@ function App() {
           <Navbar onContactClick={() => setIsContactOpen(true)} />
           <main className="relative z-10">
             <Hero />
+            <div className="premium-separator" aria-hidden="true" />
             <About />
+            <div className="premium-separator" aria-hidden="true" />
             <Skills />
+            <div className="premium-separator" aria-hidden="true" />
             <Education />
+            <div className="premium-separator" aria-hidden="true" />
             <Projects />
+            <div className="premium-separator" aria-hidden="true" />
             <Experience />
+            <div className="premium-separator" aria-hidden="true" />
             <Certifications />
+            <div className="premium-separator" aria-hidden="true" />
             <Contact />
           </main>
           <Footer />

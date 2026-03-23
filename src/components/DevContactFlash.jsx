@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { Mail, Phone, Github, Linkedin, MapPin, Briefcase, X, User } from "lucide-react";
 
 const contactData = [
-  { key: "Name", value: "Vishal Singh", icon: User },
-  { key: "Email", value: "Vishalrw007@gmail.com", href: "mailto:Vishalrw007@gmail.com", icon: Mail },
-  { key: "Phone", value: "+91-7355752539", href: "tel:+917355752539", icon: Phone },
-  { key: "GitHub", value: "github.com/Vishal-047", href: "https://github.com/Vishal-047", icon: Github },
-  { key: "LinkedIn", value: "linkedin.com/in/vishal0407", href: "https://www.linkedin.com/in/vishal0407", icon: Linkedin },
-  { key: "Location", value: "Punjab, India", icon: MapPin },
-  { key: "Status", value: "Available for Internship", icon: Briefcase, highlight: true },
+  { key: "Name", value: "Vikram Singh Rathour", icon: User },
+  { key: "Email", value: "vikramsingh3124k@gmail.com", href: "mailto:vikramsingh3124k@gmail.com", icon: Mail },
+  { key: "Phone", value: "+91 8982706433", href: "tel:+918982706433", icon: Phone },
+  { key: "GitHub", value: "github.com/RyanV-0407", href: "https://github.com/RyanV-0407", icon: Github },
+  { key: "LinkedIn", value: "linkedin.com/in/vikram-singh-r0407/", href: "https://linkedin.com/in/vikram-singh-r0407/", icon: Linkedin },
+  { key: "Location", value: "Phagwara, Punjab, India", icon: MapPin },
+  { key: "Status", value: "Open to internships and collaborations", icon: Briefcase, highlight: true },
 ];
 
 function DataLine({ item, index, show }) {
@@ -50,7 +50,7 @@ function DataLine({ item, index, show }) {
         alignItems: "center",
         gap: 14,
         padding: "12px 16px",
-        borderBottom: "1px solid #D4C9A8",
+        borderBottom: "1px solid var(--color-border)",
         animation: "revealSlide 0.4s ease forwards",
         transition: "background 0.25s ease",
       }}
@@ -59,8 +59,8 @@ function DataLine({ item, index, show }) {
       <div style={{
         width: 36, height: 36,
         display: "flex", alignItems: "center", justifyContent: "center",
-        border: "1px solid #D4C9A8",
-        color: item.highlight ? "#8B3A1C" : "#C8860A",
+        border: "1px solid var(--color-border)",
+        color: item.highlight ? "var(--color-rust)" : "var(--color-primary)",
         flexShrink: 0,
       }}>
         <Icon size={16} />
@@ -70,7 +70,7 @@ function DataLine({ item, index, show }) {
           fontFamily: "'DM Mono', monospace",
           fontSize: 10,
           letterSpacing: "0.12em",
-          color: "#6B5B3E",
+          color: "var(--color-muted-foreground)",
           textTransform: "uppercase",
           marginBottom: 2,
         }}>
@@ -79,14 +79,14 @@ function DataLine({ item, index, show }) {
         <div style={{
           fontFamily: "'Instrument Sans', sans-serif",
           fontSize: 14,
-          color: item.highlight ? "#8B3A1C" : "#1A1108",
+          color: item.highlight ? "var(--color-rust)" : "var(--color-ink)",
           fontWeight: item.highlight ? 600 : 400,
         }}>
           {displayValue || item.value}
         </div>
       </div>
       {item.href && (
-        <span style={{ color: "#C8860A", fontSize: 12 }}>→</span>
+        <span style={{ color: "var(--color-primary)", fontSize: 12 }}>→</span>
       )}
     </div>
   );
@@ -145,7 +145,9 @@ export const DevContactFlash = ({ open, onClose }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: open ? "rgba(26,17,8,0.6)" : "rgba(26,17,8,0)",
+        background: open
+          ? "color-mix(in srgb, var(--color-ink) 62%, transparent)"
+          : "color-mix(in srgb, var(--color-ink) 0%, transparent)",
         backdropFilter: open ? "blur(8px)" : "blur(0)",
         transition: "all 0.4s ease",
         opacity: open ? 1 : 0,
@@ -155,13 +157,14 @@ export const DevContactFlash = ({ open, onClose }) => {
       <div
         onClick={e => e.stopPropagation()}
         style={{
-          background: "#F5EFE0",
-          border: "1px solid #D4C9A8",
+          background: "var(--color-background)",
+          border: "1px solid var(--color-border)",
           width: "min(92vw, 480px)",
           overflow: "hidden",
           transform: open ? "scale(1) translateY(0)" : "scale(0.95) translateY(20px)",
           transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease",
-          boxShadow: "0 25px 80px rgba(26,17,8,0.25), 0 0 0 1px rgba(200,134,10,0.1)",
+          boxShadow:
+            "0 25px 80px color-mix(in srgb, var(--color-ink) 35%, transparent), 0 0 0 1px color-mix(in srgb, var(--color-primary) 25%, transparent)",
           position: "relative",
         }}
       >
@@ -171,24 +174,24 @@ export const DevContactFlash = ({ open, onClose }) => {
           display: "flex",
           alignItems: "flex-start",
           justifyContent: "space-between",
-          borderBottom: "1px solid #D4C9A8",
+          borderBottom: "1px solid var(--color-border)",
         }}>
           <div>
             <h3 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: 22,
               fontWeight: 700,
-              color: "#1A1108",
+              color: "var(--color-ink)",
               margin: 0,
               lineHeight: 1.3,
             }}>
-              Contact <span style={{ fontStyle: "italic", color: "#8B3A1C" }}>Details</span>
+              Contact <span style={{ fontStyle: "italic", color: "var(--color-rust)" }}>Details</span>
             </h3>
             <p style={{
               fontFamily: "'DM Mono', monospace",
               fontSize: 10,
               letterSpacing: "0.15em",
-              color: "#6B5B3E",
+              color: "var(--color-muted-foreground)",
               marginTop: 4,
               textTransform: "uppercase",
             }}>
@@ -200,14 +203,14 @@ export const DevContactFlash = ({ open, onClose }) => {
             data-hover
             style={{
               background: "transparent",
-              border: "1px solid #D4C9A8",
+              border: "1px solid var(--color-border)",
               width: 32, height: 32,
               display: "flex", alignItems: "center", justifyContent: "center",
-              color: "#6B5B3E",
+              color: "var(--color-muted-foreground)",
               transition: "all 0.25s",
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = "#C8860A"; e.currentTarget.style.color = "#C8860A"; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = "#D4C9A8"; e.currentTarget.style.color = "#6B5B3E"; }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--color-primary)"; e.currentTarget.style.color = "var(--color-primary)"; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--color-border)"; e.currentTarget.style.color = "var(--color-muted-foreground)"; }}
           >
             <X size={16} />
           </button>
@@ -223,14 +226,14 @@ export const DevContactFlash = ({ open, onClose }) => {
         {/* Footer */}
         <div style={{
           padding: "12px 24px",
-          borderTop: "1px solid #D4C9A8",
+          borderTop: "1px solid var(--color-border)",
           textAlign: "center",
         }}>
           <span style={{
             fontFamily: "'DM Mono', monospace",
             fontSize: 10,
             letterSpacing: "0.12em",
-            color: "#6B5B3E80",
+            color: "color-mix(in srgb, var(--color-muted-foreground) 50%, transparent)",
             textTransform: "uppercase",
           }}>
             Click links to connect · ESC to close
@@ -244,7 +247,7 @@ export const DevContactFlash = ({ open, onClose }) => {
           to { opacity: 1; transform: translateX(0); }
         }
         .contact-line:hover {
-          background: rgba(200,134,10,0.06) !important;
+          background: color-mix(in srgb, var(--color-primary) 10%, transparent) !important;
         }
       `}</style>
     </div>
