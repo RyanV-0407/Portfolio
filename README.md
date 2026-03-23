@@ -111,11 +111,6 @@ git push -u origin main
 3. **Add Environment Variables**
 
 - In Vercel dashboard, go to **Settings**    **Environment Variables**
-- Add your EmailJS credentials:
-  - `VITE_EMAILJS_SERVICE_ID`
-  - `VITE_EMAILJS_TEMPLATE_ID`
-  - `VITE_EMAILJS_PUBLIC_KEY`
-- Redeploy to apply changes
 
 #### Manual Deployment (Using Vercel CLI)
 
@@ -136,10 +131,6 @@ For the contact form to work on production, set your environment variables:
 
 1. Go to your Vercel project dashboard
 2. Navigate to **Settings**    **Environment Variables**
-3. Add these keys:
-   - `VITE_EMAILJS_SERVICE_ID`
-   - `VITE_EMAILJS_TEMPLATE_ID`
-   - `VITE_EMAILJS_PUBLIC_KEY`
 
 The Vercel configuration will automatically pick these up during build time.
 
