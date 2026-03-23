@@ -56,15 +56,6 @@ npm run build
 npm run preview
 ```
 
-## Environment Variables
-
-Create a `.env` file in the project root if you want the contact form to work:
-
-```env
-VITE_EMAILJS_SERVICE_ID=your_service_id
-VITE_EMAILJS_TEMPLATE_ID=your_template_id
-VITE_EMAILJS_PUBLIC_KEY=your_public_key
-```
 
 If these values are missing, the UI still works, but sending messages from the contact form will fail.
 
